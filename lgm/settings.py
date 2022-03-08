@@ -17,6 +17,7 @@ import dj_database_url
 if os.path.isfile("env.py"):
    import env
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -93,8 +94,6 @@ SITE_ID = 1
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-
-
 ACCOUNT_AUTHENTICATION_METHOD = "email"                   # this is to use only their email when logging back in
 ACCOUNT_EMAIL_VERIFICATION = "none"                       # this is to bypass email verification
 ACCOUNT_EMAIL_REQUIRED = True                             # this makes it so emails are required when signing up
@@ -104,6 +103,7 @@ ACCOUNT_UNIQUE_EMAIL = True                               # this one makes it so
 LOGIN_REDIRECT_URL = "/profile/"                          # where to take a user when they login... so to their profile page
 ACCOUNT_LOGOUT_REDIRECT_URL = "/auth/login/"              # where to take a user when they logout... back to the login page
 ACCOUNT_LOGOUT_ON_GET = True                              # this bypasses the "Are you sure you want to log-out" page
+LOGIN_URL = '/accounts/login/'                             # url for login
 
 WSGI_APPLICATION = 'lgm.wsgi.application'
 
