@@ -1,15 +1,18 @@
 from django.shortcuts import render, redirect
+from .models import Product
 
 
 
 # Create your views here.
-def index(request):
+def all_products(request):
     """ A view to return the index page """
 
-    return render(request, 'membership/membership.html')
+    products = Product.objects.all()
 
-def success(request):
-    """ A view to return the success page """
+    context = {
+        'products' : products,
+    }
 
-    return render(request, 'membership/success.html')
+    return render(request, 'membership/membership.html', context)
+
 
