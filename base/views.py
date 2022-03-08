@@ -5,3 +5,4 @@ def index(request):
     """ A view to return the index page """
 
     return render(request, 'base/index.html')
+
