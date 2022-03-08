@@ -50,6 +50,9 @@ INSTALLED_APPS = [
     'base',
     'membership',
     'checkout',
+
+    #Other
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -63,6 +66,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'lgm.urls'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 TEMPLATES = [
     {
@@ -79,6 +84,10 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]
@@ -92,6 +101,8 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 SITE_ID = 1
+
+CSRF_TRUSTED_ORIGINS = ['https://8000-5undel-lgm-jmjnwwifs0s.ws-eu34.gitpod.io'] #test to get around token error
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
