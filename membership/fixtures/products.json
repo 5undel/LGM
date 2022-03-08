@@ -1,0 +1,1 @@
+[{"pk":1,"model":"membership.product","fields":{"sku":"GYM","name":"Gym Membership","price":50.00,"category":1}}, {"pk":2,"model":"membership.product","fields":{"sku":"CRO","name":"Crossfit Membership","price":80.00,"category":1}}]
