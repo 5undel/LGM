@@ -93,13 +93,17 @@ SITE_ID = 1
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
-ACCOUNT_USERNAME_MIN_LENGTH = 4
-LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/'
+
+
+ACCOUNT_AUTHENTICATION_METHOD = "email"                   #this is to use only their email when logging back in
+ACCOUNT_EMAIL_VERIFICATION = "none"                       #this is to bypass email verification
+ACCOUNT_EMAIL_REQUIRED = True                             #this makes it so emails are required when signing up
+ACCOUNT_USERNAME_REQUIRED = False                         #this makes it so usernames are not required, it will create one automatically
+ACCOUNT_SESSION_REMEMBER = False                          #this one makes it to hide the "Remember Me" checkbox
+ACCOUNT_UNIQUE_EMAIL = True                               #this one makes it so all emails are unique for each user
+LOGIN_REDIRECT_URL = "/profile/"                          #where to take a user when they login... so to their profile page
+ACCOUNT_LOGOUT_REDIRECT_URL = "/auth/login/"              #where to take a user when they logout... back to the login page
+ACCOUNT_LOGOUT_ON_GET = True                              #this bypasses the "Are you sure you want to log-out" page
 
 WSGI_APPLICATION = 'lgm.wsgi.application'
 
