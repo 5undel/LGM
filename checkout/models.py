@@ -30,7 +30,7 @@ class CreateMembership(models.Model):
     def update_total(self):
         self.grand_total = self.order_total
         self.save()
-    
+
     def save(self, *args, **kwargs):
         if not self.membership_number:
             self.membership_number = self._generate_membership_number()
@@ -48,7 +48,6 @@ class MembershipNumber(models.Model):
     def save(self, *args, **kwargs):
         self.linitem_total = self.product.price
         super().save(*args, **kwargs)
-    
+
     def __str__(self):
         return f'SKU {self.product.sku} on order {self.createmembership.membership_number}'
-    
