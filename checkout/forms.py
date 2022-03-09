@@ -1,6 +1,7 @@
 from django import forms
 from .models import CreateMembership
 
+# The base for the submit form and layout
 class MembershipForm(forms.ModelForm):
     class Meta:
         model = CreateMembership

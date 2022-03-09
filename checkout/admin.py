@@ -2,6 +2,7 @@ from django.contrib import admin
 from .models import CreateMembership , MembershipNumber
 # Register your models here.
 
+# Creating readonly 
 class MembershipLineItemAdminInLine(admin.TabularInline):
     model = MembershipNumber
     readonly_fields = ('linitem_total',)

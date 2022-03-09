@@ -40,7 +40,7 @@ class CreateMembership(models.Model):
     def __str__(self):
         return self.membership_number
 
-
+#Create a unique membership number for the user
 class MembershipNumber(models.Model):
     createmembership = models.ForeignKey(CreateMembership, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
     product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
