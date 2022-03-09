@@ -11,10 +11,10 @@ import stripe
 # Create your views here.
 
 
-def checkout(request):
+def checkout(request, pk):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
-
+    product = get_object_or_404(Product, pk=pk)
 
     if request.method == 'POST':
         form_data = {
@@ -33,7 +33,7 @@ def checkout(request):
     else:
         stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(
-            amount = 5*1000,
+            amount = int(product.price * 100),
             currency = settings.STRIPE_CURRENCY,
         )
     order_form = MembershipForm()
@@ -42,6 +42,7 @@ def checkout(request):
         'order_form': order_form,
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
+        'product': product,
     }
 
     return render(request, 'checkout/checkout.html', context)
