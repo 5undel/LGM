@@ -27,16 +27,16 @@
                             <div class="card h-100 border-0">
                                 <div class="card-body pb-0">
                                     <p class="mb-0">{{ product.name }}</p>
-                                </div>
-                                <div class="card-footer bg-white pt-0 border-0 text-left">
-                                    <div class="row">
-                                        <div class="col">
+                                                           <div class="col">
                                             <p class="lead mb-0 text-left font-weight-bold">{{ product.description }}</p>
                                         </div>
                                         <div class="col">
                                             <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
                                         </div>
-                                            <a href="{% url 'checkout' product.id %}">Sign Membership </a>
+                                </div>
+                                <div class="card-footer pt-0 border-0 text-left">
+                                    <div class="row">
+                                            <a href="{% url 'checkout' product.id %}" class="text-white">Sign Membership </a>
                                     </div>
                                 </div>
                             </div>

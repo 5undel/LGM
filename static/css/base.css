@@ -1,5 +1,6 @@
 html {
     height: 100%;
+
 }
 
 body {
@@ -28,7 +29,7 @@ body {
 }
 
 .shop-now-button {
-    background: black;
+    background: rgb(65, 64, 64);
     color: white;
     min-width: 260px;
 }
@@ -62,7 +63,7 @@ body {
 }
 
 .text-black {
-    color: #000 !important;
+    color: black !important;
 }
 
 .border-black {
@@ -100,6 +101,15 @@ a.category-badge > span.badge:hover {
 .update-link,
 .remove-item {
     cursor: pointer;
+}
+
+.card{
+    background: rgb(65, 64, 64);
+    color: white;
+}
+.card-footer {
+    background: rgb(65, 64, 64);
+    color: white;
 }
 
 /* ------------------------------- bootstrap toasts */
