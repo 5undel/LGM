@@ -4,6 +4,6 @@ from . import views
 
 # path for the checkout and success page
 urlpatterns = [
-    path('', views.checkout, name='checkout'),
+    path('<int:pk>/', views.checkout, name='checkout'),
     path('checkout_success/<membership_number>', views.checkout_success, name='checkout_success'),
 ]
