@@ -8,11 +8,12 @@ def update_on_save(sender, instance, created, **kwargs):
     """
     update memebership total on MembershipNumber
     """
-    instance.order.update_total()
+    instance.createmembership.update_total()
 
 @receiver(post_save, sender=MembershipNumber)
-def update_on_save(sender, instance, **kwargs):
+def update_on_delete(sender, instance, **kwargs):
     """
     update memebership total on MembershipNumber
     """
-    instance.order.update_total()
+    print('delete signal receiver!')
+    instance.createmembership.update_total()
