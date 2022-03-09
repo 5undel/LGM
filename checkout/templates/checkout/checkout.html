@@ -25,23 +25,26 @@
         </div>
         <div class="row">
             <div class="col-12 col-lg-6 order-lg-last mb-5">
-                <p class="text-muted">Order Summary {{ product_count }}</p>
                 <div class="row">
                     <div class="col-7 offset-2">
-                        <p class="mb-1 mt-0 small text-muted">Membership</p>
+                        <p class="mb-1 mt-0 text-muted">Order</p>
                     </div>
-                    <div class="col-3 text-right">
-                        <p class="mb-1 mt-0 small text-muted">Subtotal</p>
-                    </div>
+
                 </div>
-                <div class="row">
-                    <div class="col-7">
+               
+                <div class="row text-black text-right">
+                    <div class="col-7 offset-2">
+                        <p>Membership :</p>
                         <p class="my-0"><strong>{{ item.product.name }}</strong></p>
                     </div>
-                    <div class="col-3 text-right">
-                        <p class="my-0 small text-muted">${{ item.product.price }}</p>
+                    <div class="col-7 offset-2">
+                        <p class="my-0">Grand Total:</p>
+                    </div>
+                    <div class="col-3">
+                        <p class="my-0"><strong>${{ product.price | floatformat:2 }}</strong></p>
                     </div>
                 </div>
+            
             </div>
             <div class="col-12 col-lg-6">
                 <p class="text-muted">Please fill out the form below to complite your membership</p>
@@ -66,7 +69,7 @@
                         <span class="font-weight-bold">Complete Membership</span>
                     </button>
                     <p class="small text-danger my-0">
-                        <span>Your card will be charged <strong>${{ grand_total | floatformat:2 }}</strong> </span>
+                        <span>Your card will be charged <strong>${{ product.price | floatformat:2 }}</strong> </span>
                     </p>
                 </form>
             </div>

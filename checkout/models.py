@@ -28,6 +28,7 @@ class CreateMembership(models.Model):
         return uuid.uuid4().hex.upper()
 
     def update_total(self):
+        self.order_total = self.lineitems.aggregate(Sum('linitem_total'))['linitem_total__sum']
         self.grand_total = self.order_total
         self.save()
 
