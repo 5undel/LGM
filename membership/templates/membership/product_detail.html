@@ -28,14 +28,15 @@
                                 <div class="card-body pb-0">
                                     <p class="mb-0">{{ product.name }}</p>
                                                            <div class="col">
-                                            <p class="lead mb-0 text-left font-weight-bold">{{ product.description }}</p>
+                                            <p class="lead mb-0 text-left ">{{ product.description }}</p>
                                         </div>
+                                        <br>
                                         <div class="col">
-                                            <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+                                            <p class="lead mb-0 text-left ">${{ product.price }} / year</p>
                                         </div>
                                 </div>
                                 <div class="card-footer pt-0 border-0 text-left">
-                                    <div class="row">
+                                    <div class="col">
                                             <a href="{% url 'checkout' product.id %}" class="text-white">Sign Membership </a>
                                     </div>
                                 </div>

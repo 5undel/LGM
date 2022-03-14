@@ -21,7 +21,8 @@ class MembershipAdmin(admin.ModelAdmin):
               'grand_total',)
 
     list_display = ('membership_number', 'start_date',
-                    'full_name','order_total',
+                    'full_name', 'order_total',
                     'grand_total',)
 
 admin.site.register(CreateMembership, MembershipAdmin)
+admin.site.register(MembershipNumber)
