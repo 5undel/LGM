@@ -34,10 +34,10 @@ def profile(request):
 
 
 def order_history(request, order_number):
-    order = get_object_or_404(CreateMembership, order_number=order_number)
+    order = get_object_or_404(CreateMembership, membership_number=membership_number)
 
     messages.info(request, (
-        f'This is a past confirmation for order number {order_number}. '
+        f'This is a past confirmation for order number {membership_number}. '
         'A confirmation email was sent on the order date.'
     ))
 
