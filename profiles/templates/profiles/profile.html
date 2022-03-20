@@ -51,7 +51,7 @@
                                                 {{ order.membership_number|truncatechars:6 }}
                                             </a>
                                         </td>
-                                        <td>{{ order.date }}</td>
+                                        <td>{{ start_date }}</td>
                                         <td>
                                             <ul class="list-unstyled">
                                                 {% for item in order.lineitems.all %}
