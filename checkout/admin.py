@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import CreateMembership , MembershipNumber
+from profiles.models import UserProfile
 # Register your models here.
 
 # Creating readonly 

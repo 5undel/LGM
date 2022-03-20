@@ -6,3 +6,7 @@ def index(request):
 
     return render(request, 'base/index.html')
 
+def userlogin(request):
+    """ A view to return the user login page """
+
+    return render(request, 'base/userlogin.html')

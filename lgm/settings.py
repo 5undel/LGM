@@ -106,7 +106,7 @@ ACCOUNT_USERNAME_REQUIRED = False                         # this makes it so use
 ACCOUNT_SESSION_REMEMBER = False                          # this one makes it to hide the "Remember Me" checkbox
 ACCOUNT_UNIQUE_EMAIL = True                               # this one makes it so all emails are unique for each user
 LOGIN_REDIRECT_URL = "/profile/"                          # where to take a user when they login... so to their profile page
-ACCOUNT_LOGOUT_REDIRECT_URL = "/auth/login/"              # where to take a user when they logout... back to the login page
+ACCOUNT_LOGOUT_REDIRECT_URL = "/"              # where to take a user when they logout... back to the login page
 ACCOUNT_LOGOUT_ON_GET = True                              # this bypasses the "Are you sure you want to log-out" page
 LOGIN_URL = '/accounts/login/'                            # url for login
 
