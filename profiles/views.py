@@ -42,7 +42,7 @@ def update_profile(request):
     return render(request, template, context)
 
 
-def order_history(request, order_number):
+def order_history(request, CreateMembership):
     order = get_object_or_404(CreateMembership, membership_number=membership_number)
 
     messages.info(request, (
