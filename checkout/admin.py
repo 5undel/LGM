@@ -20,9 +20,10 @@ class MembershipAdmin(admin.ModelAdmin):
               'street_address2', 'order_total',
               'grand_total',)
 
-    list_display = ('membership_number', 'start_date',
-                    'full_name', 'order_total',
-                    'grand_total',)
+    list_display = ('full_name', 'start_date', 'order_total', 
+                    'membership_number',)
+    
+    ordering = ('full_name',)
 
 admin.site.register(CreateMembership, MembershipAdmin)
 admin.site.register(MembershipNumber)
