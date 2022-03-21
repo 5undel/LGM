@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'checkout',
     'profiles',
     'crossfit',
+    'pt',
 
     #Other
     'crispy_forms',
