@@ -2,48 +2,52 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
-    <div class="overlay"></div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col text-center mt-3">
-                <h2 class="logo-font">Membership</h2>
-                <hr class="w-50 mb-1">
-            </div>
-        </div>
-        <div class="row">
-            <div class="product-container col-10 offset-1">
-                <div class="row mt-1 mb-2"></div>
-                <!-- detaild info about the membership-->
-                <div class="row">
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="card h-100 border-0">
-                                <div class="card-body pb-0">
-                                    <p class="mb-0">{{ product.name }}</p>
-                                                           <div class="col">
-                                            <p class="lead mb-0 text-left ">{{ product.description }}</p>
-                                        </div>
-                                        <br>
-                                        <div class="col">
-                                            <p class="lead mb-0 text-left ">${{ product.price }} / year</p>
-                                        </div>
-                                </div>
-                                <div class="card-footer pt-0 border-0 text-left">
-                                    <div class="col">
-                                            <a href="{% url 'checkout' product.id %}" class="text-white">Sign Membership </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-            </div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col text-center mt-3">
+            <h2 class="logo-font text-white">Membership</h2>
+            <hr class="w-50 mb-1">
         </div>
     </div>
+    <div class="product-container col-10 offset-1">
+        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+            <div class="card h-100 border-0">
+                <div class="card-body pb-0 text-center">
+                    <p class="mb-0">{{ product.name }}</p>
+                    <div class="col">
+                        <p class="mb-0 text-white ">{{ product.description }}</p>
+                    </div>
+                    <br>
+                    <div class="col">
+                        <p class="mb-0 text-white ">${{ product.price }} / year</p>
+                    </div>
+                    <a href="{% url 'checkout' product.id %}" class="text-white">Sign Membership </a>                    <br>
+                </div>
+                <br>
+            </div>
+            <br>
+        </div>
+    </div>
+    <div class="product-container col-10 offset-1">
+        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+            <div class="card h-100 border-0">
+                <div class="card-body pb-0 text-center">
+                    <a href="{% url 'membership' %}" class="mb-0 text-white">Back</a>
+                    <br>
+                </div>
+                <br>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>
 {% endblock %}
