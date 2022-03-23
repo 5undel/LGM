@@ -1,5 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Coach
+from django.contrib import messages
+from django.conf import settings
+
+from .forms import BookingForm
 
 
 # Create your views here.
@@ -20,8 +24,25 @@ def coach_detail(request, coach_id):
 
     coach = get_object_or_404(Coach, pk=coach_id)
 
+
+
+    
+
+    if request.method == 'POST':
+        form_data = {
+            'full_name': request.POST['full_name'],
+            'email': request.POST['email'],
+            'phone_number': request.POST['phone_number'],
+        }
+        booking_form = BookingForm(form_data)
+        if booking_form.is_valid():
+            order = booking_form.save()
+
+    booking_form = BookingForm()    
     context = {
         'coach' : coach,
+        'booking_form' : booking_form,
     }
-
+    
     return render(request, 'pt/coach_detail.html', context)
+
