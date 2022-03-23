@@ -32,10 +32,14 @@ At LGM, everyone is welcome to improve and feel better.
 - Python (PEP8online.com) 
 
 
-### WEBBROWSER
+## WEBBROWSER
 - Chrome
 
 - Edge
 
 - Fierfox
 
+## Credit
+
+- Style and layout - Bootstap - https://getbootstrap.com/
+- Background image - Unsplash - https://unsplash.com/s/photos/gym
