@@ -11,6 +11,10 @@ body {
     font-family: 'Lato';
 }
 
+main {
+    margin-top: 7em ;
+}
+
 /* from Bulma */
 .icon {
     align-items: center;
@@ -57,7 +61,7 @@ body {
 .shop-now-button:focus,
 .btn-black:hover,
 .btn-black:active,
-.btn-black:focus, {
+.btn-black:focus {
     background: #222;
     color: white;
 }

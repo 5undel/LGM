@@ -10,9 +10,13 @@ from checkout.models import CreateMembership
 def profile(request):
     """ Display the user's profile. """
 
-
+    orders = CreateMembership.objects.filter(
+        user_profile__user=request.user
+    )
     template = 'profiles/profile.html'
-    context = {}
+    context = {
+        'orders': orders
+    }
 
     return render(request, template, context)
 

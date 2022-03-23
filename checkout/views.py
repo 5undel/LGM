@@ -24,7 +24,10 @@ def checkout(request, pk):
             'town_or_city': request.POST['town_or_city'],
             'street_address1': request.POST['street_address1'],
             'street_address2': request.POST['street_address2'],
+            'order_total': product.price,
+            'grand_total': product.price,
         }
+        print(form_data)
         order_form = MembershipForm(form_data)
         if order_form.is_valid():
             order = order_form.save()
