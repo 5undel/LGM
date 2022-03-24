@@ -34,17 +34,17 @@
             <table class="table table-sm table-borderless text-white">
                 <thead>
                     <tr>
-                        <th>Membership</th>
+                        <th></th>
                         <th>Membership Number</th>
                         <th>Start Date</th>
-                        <th>Membership cost</th>
+                        <th>End Date</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for order in orders %}
                     <tr>
                         <td>
-                            {{order.membership_typ}}
+                         
                         </td>
                         <td>
                             <p>
@@ -52,7 +52,7 @@
                             </p>
                         </td>
                         <td>{{ order.start_date|truncatechars:12 }}</td>
-                        <td>${{ order.grand_total }}</td>
+                        <td><div id="result"></div></td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -61,32 +61,12 @@
 
     </div>
     <div class="col-12 col-lg-6"></div>
-    <div class="col-12 col-lg-6">
+</div>
 
-        <p class="text-muted text-white">Booked PT</p>
-        <div class="order-history table-responsive text-white">
-            <table class="table table-sm table-borderless text-white">
-                <thead>
-                    <tr>
-                        <th>Pt</th>
-                        <th>Class</th>
-                        <th>Date</th>
-                        <th>Time</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for booking in bookings %}
-                    <tr>
-                        <td>{{ coach.name }}</td>
-                        <td>{{ coach.sku }}</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-</div>
+<script>
+    var date = new Date();
+    date.setDate(date.getDate() + 365);
+    document.getElementById("result").innerHTML = date.toISOString().split('T')[0];
+    </script>
 {% endblock %}
+
