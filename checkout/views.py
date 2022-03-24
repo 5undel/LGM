@@ -5,6 +5,8 @@ from django.conf import settings
 from .forms import MembershipForm
 from membership.models import Product
 from .models import CreateMembership, MembershipNumber
+from profiles.models import UserProfile
+from profiles.forms import UserProfileForm
 
 import stripe
 
@@ -56,6 +58,26 @@ def checkout_success(request, membership_number):
     save_info = request.session.get('save_info')
     order = get_object_or_404(
         CreateMembership, membership_number=membership_number)
+
+    profile = UserProfile.objects.get(user=request.user)
+    order.user_profile = profile
+    order.save()
+
+    if save_info:
+        profile_data = {
+            'default_phone_number': order.phone_number,
+            'default_country': order.country,
+            'default_postcode': order.postcode,
+            'default_town_or_city': order.town_or_city,
+            'default_street_address1': order.street_address1,
+            'default_street_address2': order.street_address2,
+            'default_county': order.county,
+        }
+    
+        user_profile_form = UserProfileForm(profile_data, instance=profile)
+        if user_profile_form.is_valid():
+            user_profile_form.save()
+
     messages.success(request, f'Membership successfully processed! \
         Your membership number is {membership_number}. A confirmation \
         email will be sent to {order.email}')

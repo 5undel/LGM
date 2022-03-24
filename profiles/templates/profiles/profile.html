@@ -44,21 +44,14 @@
                     {% for order in orders %}
                     <tr>
                         <td>
-                            <a href="{% url 'order_history' order.membership_number %}"
-                                title="{{ order.membership_number }}">
-                                {{ order.membership_number|truncatechars:6 }}
-                            </a>
+                            {{order.membership_typ}}
                         </td>
-                        <td>{{ start_date }}</td>
                         <td>
-                            <ul class="list-unstyled">
-                                {% for item in order.lineitems.all %}
-                                <li class="small">
-                                    {{ product.name }}
-                                </li>
-                                {% endfor %}
-                            </ul>
+                            <p>
+                                {{ order.membership_number|truncatechars:14 }}
+                            </p>
                         </td>
+                        <td>{{ order.start_date|truncatechars:12 }}</td>
                         <td>${{ order.grand_total }}</td>
                     </tr>
                     {% endfor %}

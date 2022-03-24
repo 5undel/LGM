@@ -15,7 +15,7 @@ class MembershipAdmin(admin.ModelAdmin):
     readonly_fields = ('membership_number', 'start_date',
                        'grand_total', 'order_total',)
     
-    fields = ('membership_number', 'start_date',
+    fields = ('membership_number', 'membership_typ', 'user_profile', 'start_date',
               'full_name', 'email', 'phone_number', 
               'country', 'town_or_city', 'street_address1', 
               'street_address2', 'order_total',
