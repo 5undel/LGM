@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.conf import settings
 
 from .forms import BookingForm
+from .models import Coach
 
 
 # Create your views here.
@@ -46,3 +47,13 @@ def coach_detail(request, coach_id):
     
     return render(request, 'pt/coach_detail.html', context)
 
+def pt_success(request):
+    """ A view to return the pt page """
+
+    coach = Coach
+
+    context = {
+        'coach' : coach,
+    }
+
+    return render(request, 'pt/pt_success.html', context)

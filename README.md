@@ -43,3 +43,4 @@ At LGM, everyone is welcome to improve and feel better.
 
 - Style and layout - Bootstap - https://getbootstrap.com/
 - Background image - Unsplash - https://unsplash.com/s/photos/gym
+- Countdown time - stackoverflow - https://stackoverflow.com/questions/38276672/todays-date-30-days-in-javascript
