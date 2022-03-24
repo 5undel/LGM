@@ -36,7 +36,7 @@ Steps taken to deploy are as follows:
 
 - Create a **requirements.txt** file using the terminal command `pip3 freeze --local > requirements.txt`
 - Create a **Procfile** with the terminal command `echo web: python3 run.py > Procfile`
-- install whitenoise - pip install whitenoise - whitenoise will store the static file and imgaes for the project.
+- install whitenoise - `pip install whitenoise` - whitenoise will store the static file and imgaes for the project.
 - `git add` and `git commit` the new **requirements** and **Procfile**, then `git push` the project to GitHub.
 
 - Navigate over to Heroku.com
