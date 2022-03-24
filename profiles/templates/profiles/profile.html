@@ -2,72 +2,98 @@
 {% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+<link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
 {% endblock %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
-    <div class="container bg-dark text-white">
-        <div class="row">
-            <div class="col">
-                <hr>
-                <h2 class="logo-font mb-4 text-white">My Profile</h2>
-                <br>
-                <a href="{% url 'update_profile' %}">Settings</a>
-                <hr>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-lg-6">
-              
-            </div>
-            <div class="col-12 col-lg-6">
-                
-                    <p class="text-muted text-white">Order History</p>
-                    <div class="order-history table-responsive text-white">
-                        <table class="table table-sm table-borderless text-white">
-                            <thead>
-                                <tr>
-                                    <th>Membership</th>
-                                    <th>Membership Number</th>
-                                    <th>Start Date</th>
-                                    <th>Membership cost</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for order in orders %}
-                                    <tr>
-                                        <td>
-                                            <a href="{% url 'order_history' order.membership_number %}"
-                                            title="{{ order.membership_number }}">
-                                                {{ order.membership_number|truncatechars:6 }}
-                                            </a>
-                                        </td>
-                                        <td>{{ start_date }}</td>
-                                        <td>
-                                            <ul class="list-unstyled">
-                                                {% for item in order.lineitems.all %}
-                                                    <li class="small">
-                                                        {{ product.name }}
-                                                    </li>
-                                                {% endfor %}
-                                            </ul>
-                                        </td>
-                                        <td>${{ order.grand_total }}</td>
-                                    </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
-                
-            </div>
+<div class="container bg-dark text-white">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="logo-font mb-4 text-white">My Profile</h2>
+            <br>
+            <a href="{% url 'update_profile' %}">Settings</a>
+            <hr>
         </div>
     </div>
+    <div class="row">
+        <div class="col-12 col-lg-6"></div>
+    </div>
+    <div class="col-12 col-lg-6">
+
+        <p class="text-muted text-white">Order History</p>
+        <div class="order-history table-responsive text-white">
+            <table class="table table-sm table-borderless text-white">
+                <thead>
+                    <tr>
+                        <th>Membership</th>
+                        <th>Membership Number</th>
+                        <th>Start Date</th>
+                        <th>Membership cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'order_history' order.membership_number %}"
+                                title="{{ order.membership_number }}">
+                                {{ order.membership_number|truncatechars:6 }}
+                            </a>
+                        </td>
+                        <td>{{ start_date }}</td>
+                        <td>
+                            <ul class="list-unstyled">
+                                {% for item in order.lineitems.all %}
+                                <li class="small">
+                                    {{ product.name }}
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                        <td>${{ order.grand_total }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="col-12 col-lg-6"></div>
+    <div class="col-12 col-lg-6">
+
+        <p class="text-muted text-white">Booked PT</p>
+        <div class="order-history table-responsive text-white">
+            <table class="table table-sm table-borderless text-white">
+                <thead>
+                    <tr>
+                        <th>Pt</th>
+                        <th>Class</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for booking in bookings %}
+                    <tr>
+                        <td>{{ coach.name }}</td>
+                        <td>{{ coach.sku }}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
 {% endblock %}

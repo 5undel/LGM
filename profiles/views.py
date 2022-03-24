@@ -3,22 +3,29 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile
 from .forms import UserProfileForm
+from pt.forms import BookingForm
+from pt.models import Coach
 
 from checkout.models import CreateMembership
+
 
 @login_required
 def profile(request):
     """ Display the user's profile. """
 
-    orders = CreateMembership.objects.filter(
-        user_profile__user=request.user
-    )
+    
+    profile = get_object_or_404(UserProfile, user=request.user)
+    orders = profile.orders.all()
+
     template = 'profiles/profile.html'
     context = {
-        'orders': orders
+        'orders': orders,
+        'from_profile': True,
+
     }
 
     return render(request, template, context)
+
 
 @login_required
 def update_profile(request):
@@ -31,7 +38,8 @@ def update_profile(request):
             form.save()
             messages.success(request, 'Profile updated successfully')
         else:
-            messages.error(request, 'Update failed. Please ensure the form is valid.')
+            messages.error(
+                request, 'Update failed. Please ensure the form is valid.')
     else:
         form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
@@ -47,7 +55,8 @@ def update_profile(request):
 
 
 def order_history(request, CreateMembership):
-    order = get_object_or_404(CreateMembership, membership_number=membership_number)
+    order = get_object_or_404(
+        CreateMembership, membership_number=membership_number)
 
     messages.info(request, (
         f'This is a past confirmation for order number {membership_number}. '
@@ -61,3 +70,13 @@ def order_history(request, CreateMembership):
     }
 
     return render(request, template, context)
+
+
+def BookedPt(request, BookingForm):
+    booking = get_object_or_404(BookingForm)
+
+    context = {
+        'booking': booking,
+    }
+
+    return render(request, context)

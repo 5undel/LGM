@@ -31,13 +31,13 @@ def checkout(request, pk):
         order_form = MembershipForm(form_data)
         if order_form.is_valid():
             order = order_form.save()
-        
+
         return redirect(reverse('checkout_success', args=[order.membership_number]))
     else:
         stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(
-            amount = int(product.price * 100),
-            currency = settings.STRIPE_CURRENCY,
+            amount=int(product.price * 100),
+            currency=settings.STRIPE_CURRENCY,
         )
     order_form = MembershipForm()
     template = 'checkout/checkout.html'
@@ -50,14 +50,16 @@ def checkout(request, pk):
 
     return render(request, 'checkout/checkout.html', context)
 
+
 def checkout_success(request, membership_number):
 
     save_info = request.session.get('save_info')
-    order = get_object_or_404(CreateMembership, membership_number=membership_number)
+    order = get_object_or_404(
+        CreateMembership, membership_number=membership_number)
     messages.success(request, f'Membership successfully processed! \
         Your membership number is {membership_number}. A confirmation \
         email will be sent to {order.email}')
-    
+
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,

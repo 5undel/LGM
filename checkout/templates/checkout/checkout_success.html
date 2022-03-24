@@ -2,35 +2,35 @@
 {% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
-    <div class="container bg-white">
-        <div class="row">
-            <div class="col">
-                <hr>
-                <h2 class="logo-font mb-4">Thank You</h2>
-                <hr>
-                <p class="text-black">Your membership information is below. A confermation email will be  send to <strong>{{ order.email }}</strong>. </p>
-            </div>
+<div class="container bg-white">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="logo-font mb-4">Thank You</h2>
+            <hr>
+            <p class="text-black">Your membership information is below. A confermation email will be send to <strong>{{
+                    order.email }}</strong>. </p>
         </div>
-        <div class="row">
-            <div class="col-12 col-lg">
-                <button>
-                    <a href="{% url 'home' %}">Home</a>
-                </button>
-            </div>
-        </div>
-        <br>
     </div>
+    <div class="row">
+        <div class="col-12 col-lg">
+            <button>
+                <a href="{% url 'home' %}">Home</a>
+            </button>
+        </div>
+    </div>
+    <br>
+</div>
 {% endblock %}
-

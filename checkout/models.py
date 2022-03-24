@@ -9,8 +9,10 @@ from profiles.models import UserProfile
 
 # Create your models here.
 
+
 class CreateMembership(models.Model):
-    membership_number = models.CharField(max_length=32, null=False, editable=False)
+    membership_number = models.CharField(
+        max_length=32, null=False, editable=False)
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
                                      null=True, blank=True, related_name='orders')
     full_name = models.CharField(max_length=50, null=False, blank=False)
@@ -21,8 +23,10 @@ class CreateMembership(models.Model):
     street_address1 = models.CharField(max_length=80, null=False, blank=False)
     street_address2 = models.CharField(max_length=80, null=True, blank=True)
     start_date = models.DateTimeField(auto_now_add=True)
-    order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
-    grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+    order_total = models.DecimalField(
+        max_digits=10, decimal_places=2, null=False, default=0)
+    grand_total = models.DecimalField(
+        max_digits=10, decimal_places=2, null=False, default=0)
 
     def _generate_membership_number(self):
         """
@@ -31,7 +35,8 @@ class CreateMembership(models.Model):
         return uuid.uuid4().hex.upper()
 
     def update_total(self):
-        self.order_total = self.lineitems.aggregate(Sum('linitem_total'))['linitem_total__sum']
+        self.order_total = self.lineitems.aggregate(Sum('linitem_total'))[
+            'linitem_total__sum']
         self.grand_total = self.order_total
         self.save()
 
@@ -43,11 +48,16 @@ class CreateMembership(models.Model):
     def __str__(self):
         return self.membership_number
 
-#Create a unique membership number for the user
+# Create a unique membership number for the user
+
+
 class MembershipNumber(models.Model):
-    createmembership = models.ForeignKey(CreateMembership, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
-    product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
-    linitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
+    createmembership = models.ForeignKey(
+        CreateMembership, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
+    product = models.ForeignKey(
+        Product, null=False, blank=False, on_delete=models.CASCADE)
+    linitem_total = models.DecimalField(
+        max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
 
     def save(self, *args, **kwargs):
         self.linitem_total = self.product.price
