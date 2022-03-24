@@ -9,6 +9,7 @@ from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 
 import stripe
+import json
 
 # Create your views here.
 
@@ -33,7 +34,7 @@ def checkout(request, pk):
         order_form = MembershipForm(form_data)
         if order_form.is_valid():
             order = order_form.save()
-
+        
         return redirect(reverse('checkout_success', args=[order.membership_number]))
     else:
         stripe.api_key = stripe_secret_key
