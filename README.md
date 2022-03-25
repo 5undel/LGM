@@ -5,6 +5,13 @@ At LGM, everyone is welcome to improve and feel better.
 ## UX
 - As a new user, you will be able to easily navigate around the page with a simple dropdown menu, two quick links on the main page.
 
+- user can register and obtain gym membership through simple and clear directives
+
+- On the user's page you can save personal info, see how much time they have left on the membership
+
+- Users can submit a booking request to one or more of our coaches
+
+
 ## Features
 
 - Main Page
@@ -12,12 +19,16 @@ At LGM, everyone is welcome to improve and feel better.
 
 - Membership
   ![image](media/membership.png)
+
 - Coach
   ![image](media/coach.png)
+
 - Login
   ![image](media/login.png)
+
 - Regester
   ![image](media/reg.png)
+
 - payment
   ![image](media/pay.png)
 
@@ -47,7 +58,7 @@ Steps taken to deploy are as follows:
 - Confirm the linking of the Heroku app to the correct GitHub repository.
 - Select "Enable Manual Deployment", and then click the "Deploy" button.
 
-The live link can be found here - https://lets-get-moving.herokuapp.com/
+ - The live link can be found here - https://lets-get-moving.herokuapp.com/
  - Click the lgin link at the top left, at the login page click the register link to create a account. 
 
 ## Test
@@ -57,9 +68,6 @@ The live link can be found here - https://lets-get-moving.herokuapp.com/
 - Lighthouse
 
   ![image](media/lighthouse.png)
-
-- Python (PEP8online.com) 
-
 
 ## WEBBROWSER
 - Chrome
@@ -76,3 +84,10 @@ The live link can be found here - https://lets-get-moving.herokuapp.com/
 - Style and layout - [Bootstrap](https://getbootstrap.com/)
 - Background image - [Unsplash](https://unsplash.com/s/photos/gym)
 - Countdown time - [stackoverflow](https://stackoverflow.com/questions/38276672/todays-date-30-days-in-javascript)
+
+## Future ideas
+ - Future ideas are that the user should be able to book current appointments directly with the chosen coach
+
+ - The owner should be able to have an online store
+
+ - 
