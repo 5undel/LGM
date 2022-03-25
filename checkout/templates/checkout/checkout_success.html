@@ -14,22 +14,23 @@
 {% endblock %}
 
 {% block content %}
-<div class="container bg-white">
-    <div class="row">
-        <div class="col">
-            <hr>
-            <h2 class="logo-font mb-4">Thank You</h2>
-            <hr>
-            <p class="text-black">Your membership information is below. A confermation email will be send to <strong>{{ order.email }}</strong>. </p>
+<div class="product-container col-10 offset-1">
+    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+        <div class="card h-100 border-0">
+            <div class="card-body pb-0 text-center">
+                <br>
+                <hr>
+                <h2 class="logo-font mb-4">Thank You</h2>
+                <hr>
+                <p class="text-black">Your membership information is below. A confermation email will be send to <strong>{{ order.email }}</strong>. </p>
+                <hr>
+                <div class="card-body pb-0 text-center">
+                        <a href="{% url 'home' %}" class="mb-0 text-white">Home</a>
+                </div>
+            </div>
+            <br>
         </div>
+        <br>
     </div>
-    <div class="row">
-        <div class="col-12 col-lg">
-            <button>
-                <a href="{% url 'home' %}">Home</a>
-            </button>
-        </div>
-    </div>
-    <br>
 </div>
 {% endblock %}
