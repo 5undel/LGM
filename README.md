@@ -8,18 +8,18 @@ At LGM, everyone is welcome to improve and feel better.
 ## Features
 
 - Main Page
-  [image](media/main.png)
+  ![image](media/main.png)
 
 - Membership
-  [image](media/membership.png)
+  ![image](media/membership.png)
 - Coach
-  [image](media/coach.png)
+  ![image](media/coach.png)
 - Login
-  [image](media/login.png)
+  ![image](media/login.png)
 - Regester
-  [image](media/reg.png)
+  ![image](media/reg.png)
 - payment
-  [image](media/pay.png)
+  ![image](media/pay.png)
 
 ## Deployment
   #### Local deployment
