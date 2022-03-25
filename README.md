@@ -8,16 +8,18 @@ At LGM, everyone is welcome to improve and feel better.
 ## Features
 
 - Main Page
+  [image](media/main.png)
 
 - Membership
-
+  [image](media/membership.png)
 - Coach
-
+  [image](media/coach.png)
 - Login
-
+  [image](media/login.png)
 - Regester
-
+  [image](media/reg.png)
 - payment
+  [image](media/pay.png)
 
 ## Deployment
   #### Local deployment
@@ -49,22 +51,28 @@ The live link can be found here - https://lets-get-moving.herokuapp.com/
  - Click the lgin link at the top left, at the login page click the register link to create a account. 
 
 ## Test
-- Jigsaw
+- Jigsaw - [Jigsaw page](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2F8000-5undel-lgm-jmjnwwifs0s.ws-eu38.gitpod.io%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=sv/)
 
+  ![image](media/jigsaw.png) 
 - Lighthouse
+
+  ![image](media/lighthouse.png)
 
 - Python (PEP8online.com) 
 
 
 ## WEBBROWSER
 - Chrome
+    ![image](media/chrome.png)
 
 - Edge
+    ![image](media/edge.png)
 
 - Fierfox
+    ![image](media/firefox.png)
 
 ## Credit
 
-- Style and layout - Bootstap - https://getbootstrap.com/
-- Background image - Unsplash - https://unsplash.com/s/photos/gym
-- Countdown time - stackoverflow - https://stackoverflow.com/questions/38276672/todays-date-30-days-in-javascript
+- Style and layout - [Bootstrap](https://getbootstrap.com/)
+- Background image - [Unsplash](https://unsplash.com/s/photos/gym)
+- Countdown time - [stackoverflow](https://stackoverflow.com/questions/38276672/todays-date-30-days-in-javascript)

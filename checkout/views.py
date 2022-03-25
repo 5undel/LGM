@@ -36,7 +36,7 @@ def checkout(request, pk):
         if order_form.is_valid():
             order = order_form.save(commit=False)
             order.save()
-        
+
         request.session['save_info'] = 'save-info' in request.POST
         return redirect(reverse('checkout_success', args=[order.membership_number]))
     else:
@@ -77,7 +77,7 @@ def checkout_success(request, membership_number):
             'default_street_address2': order.street_address2,
             'default_county': order.county,
         }
-    
+
         user_profile_form = UserProfileForm(profile_data, instance=profile)
         if user_profile_form.is_valid():
             user_profile_form.save()

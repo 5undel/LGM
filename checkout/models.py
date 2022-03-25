@@ -16,9 +16,11 @@ class CreateMembership(models.Model):
     membership_number = models.CharField(
         max_length=32, null=False, editable=False)
     membership_typ = models.ForeignKey(Product(), on_delete=models.SET_NULL,
-                                     null=True, blank=False, related_name='membership_typ')
+                                       null=True, blank=False,
+                                       related_name='membership_typ')
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
-                                     null=True, blank=True, related_name='orders')
+                                     null=True, blank=True,
+                                     related_name='orders')
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
@@ -56,12 +58,14 @@ class CreateMembership(models.Model):
 
 
 class MembershipNumber(models.Model):
-    createmembership = models.ForeignKey(
-        CreateMembership, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
+    createmembership = models.ForeignKey(CreateMembership, null=False,
+                                         blank=False, on_delete=models.CASCADE,
+                                         related_name='lineitems')
     product = models.ForeignKey(
         Product, null=False, blank=False, on_delete=models.CASCADE)
-    linitem_total = models.DecimalField(
-        max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
+    linitem_total = models.DecimalField(max_digits=6, decimal_places=2,
+                                        null=False, blank=False,
+                                        editable=False)
 
     def save(self, *args, **kwargs):
         self.linitem_total = self.product.price

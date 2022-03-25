@@ -14,7 +14,7 @@ def all_coachs(request):
     coachs = Coach.objects.all()
 
     context = {
-        'coachs' : coachs,
+        'coachs': coachs,
     }
 
     return render(request, 'pt/pt.html', context)
@@ -26,9 +26,6 @@ def coach_detail(request, coach_id):
     coach = get_object_or_404(Coach, pk=coach_id)
 
 
-
-    
-
     if request.method == 'POST':
         form_data = {
             'full_name': request.POST['full_name'],
@@ -38,14 +35,16 @@ def coach_detail(request, coach_id):
         booking_form = BookingForm(form_data)
         if booking_form.is_valid():
             order = booking_form.save()
+            order.save()
 
-    booking_form = BookingForm()    
+    booking_form = BookingForm()
     context = {
-        'coach' : coach,
-        'booking_form' : booking_form,
+        'coach': coach,
+        'booking_form': booking_form,
     }
-    
+
     return render(request, 'pt/coach_detail.html', context)
+
 
 def pt_success(request):
     """ A view to return the pt page """
@@ -53,7 +52,7 @@ def pt_success(request):
     coach = Coach
 
     context = {
-        'coach' : coach,
+        'coach': coach,
     }
 
     return render(request, 'pt/pt_success.html', context)
