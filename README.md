@@ -98,6 +98,9 @@ Steps taken to deploy are as follows:
 
   ![image](media/lighthouse.png)
 
+- w3 validator [w3vali](https://validator.w3.org/nu/?doc=https%3A%2F%2Flets-get-moving.herokuapp.com%2F)
+
+
 ## WEBBROWSER
 - Chrome
     ![image](media/chrome.png)
