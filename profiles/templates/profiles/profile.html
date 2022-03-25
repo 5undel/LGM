@@ -63,11 +63,12 @@
     </div>
     <div class="col-12 col-lg-6"></div>
 </div>
+{% endblock %}
 
+{% block postloadjs %}
 <script>
     var date = new Date();
     date.setDate(date.getDate() + 365);
     document.getElementById("result").innerHTML = date.toISOString().split('T')[0];
-    </script>
+</script>
 {% endblock %}
-
