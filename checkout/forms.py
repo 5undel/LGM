@@ -30,5 +30,5 @@ class MembershipForm(forms.ModelForm):
             else:
                 placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = 'stripe-style-input'
-            self.fields[field].label = False
+        self.fields[field].widget.attrs['class'] = 'stripe-style-input'
+        self.fields[field].label = False

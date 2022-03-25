@@ -15,5 +15,4 @@ def update_on_delete(sender, instance, **kwargs):
     """
     update memebership total on MembershipNumber
     """
-    print('delete signal receiver!')
     instance.createmembership.update_total()

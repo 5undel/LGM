@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
 
@@ -33,8 +34,10 @@ def checkout(request, pk):
         print(form_data)
         order_form = MembershipForm(form_data)
         if order_form.is_valid():
-            order = order_form.save()
+            order = order_form.save(commit=False)
+            order.save()
         
+        request.session['save_info'] = 'save-info' in request.POST
         return redirect(reverse('checkout_success', args=[order.membership_number]))
     else:
         stripe.api_key = stripe_secret_key
