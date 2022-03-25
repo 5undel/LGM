@@ -57,9 +57,32 @@ Steps taken to deploy are as follows:
 - From the Heroku dashboard of your newly created application, click on "Deploy" > "Deployment method" and select GitHub.
 - Confirm the linking of the Heroku app to the correct GitHub repository.
 - Select "Enable Manual Deployment", and then click the "Deploy" button.
+- In your app settings on heroku > click Config Vars > This is where you save all your sensitive keys.
 
  - The live link can be found here - https://lets-get-moving.herokuapp.com/
  - Click the lgin link at the top left, at the login page click the register link to create a account. 
+
+- Create a stripe account.  [stripe](https://stripe.com/en-se?utm_campaign=paid_brand-SE_se_Search_Brand_Stripe-6498153775&utm_medium=cpc&utm_source=google&ad_content=382002499158&utm_term=kwd-295607662702&utm_matchtype=e&utm_adposition=&utm_device=c&gclid=Cj0KCQjw0PWRBhDKARIsAPKHFGhGqisIxU7fhbNJXg34m-DUA8TGVmvdUXP36t5kqUPKwDhp0V2l1XIaAh2WEALw_wcB)
+
+- Verify your business (to use it in production).
+- Install stripe package using pip install stripe in the terminal.
+-To obtain the API Keys > log in to the Stripe dashboard > To obtain the production keys, verify your account first > obtain a pair of productions and test keys.
+
+- Configuring stripe >
+
+        ```
+          # Stripe
+          STRIPE_CURRENCY = 'usd'
+          STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
+          STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '') 
+        ```
+- Create a env.py to store your sensitive keys, this names most be the same ass your Config Vars from heroku for the system to get them >
+
+        ```
+          os.environ["STRIPE_PUBLIC_KEY"] = "Your test key from stripe"
+          os.environ["STRIPE_SECRET_KEY"] = "Your secret key from stripe"
+        ```
+
 
 ## Test
 - Jigsaw - [Jigsaw page](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2F8000-5undel-lgm-jmjnwwifs0s.ws-eu38.gitpod.io%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=sv/)
