@@ -66,7 +66,11 @@ Steps taken to deploy are as follows:
 
 - Verify your business (to use it in production).
 - Install stripe package using pip install stripe in the terminal.
--To obtain the API Keys > log in to the Stripe dashboard > To obtain the production keys, verify your account first > obtain a pair of productions and test keys.
+- after this you have to freeze the requirements with command `pip3 freeze --local > requirements.txt` in the teminal.
+
+- You have to add this line to your corejs block - "https://js.stripe.com/v3/" 
+<br/>
+- To obtain the API Keys > log in to the Stripe dashboard > To obtain the production keys, verify your account first > obtain a pair of productions and test keys.
 
 - Configuring stripe >
 
