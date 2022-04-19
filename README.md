@@ -117,6 +117,21 @@ Steps taken to deploy are as follows:
 - Background image - [Unsplash](https://unsplash.com/s/photos/gym)
 - Countdown time - [stackoverflow](https://stackoverflow.com/questions/38276672/todays-date-30-days-in-javascript)
 
+
+## Wireframe
+- Home page
+ ![image](wireframe/home.png)
+
+- Checkout
+ ![image](wireframe/payment.png)
+
+- Loging page
+ ![image](wireframe/login.png)
+
+ - PT 
+ ![image](wireframe/pt.png)
+
+
 ## Future ideas
  - Future ideas are that the user should be able to book current appointments directly with the chosen coach
 
