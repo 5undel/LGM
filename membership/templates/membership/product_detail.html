@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block content %}
-
+<!--More info aboute this membership and sign membership link-->
 <div class="container-fluid">
     <div class="row">
         <div class="col text-center mt-3">
@@ -30,6 +30,7 @@
                     <div class="col">
                         <p class="mb-0 text-white ">${{ product.price }} / year</p>
                     </div>
+                    <!--link to sign up for membership-->
                     <a href="{% url 'checkout' product.id %}" class="text-white">Sign Membership </a> <br>
                 </div>
                 <br>
@@ -37,6 +38,7 @@
             <br>
         </div>
     </div>
+    <!--link to Home page-->
     <div class="product-container col-10 offset-1">
         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
             <div class="card h-100 border-0">

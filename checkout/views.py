@@ -16,6 +16,7 @@ import json
 
 
 def checkout(request, pk):
+    """ A view to complite payment """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
     product = get_object_or_404(Product, pk=pk)
@@ -58,6 +59,7 @@ def checkout(request, pk):
 
 
 def checkout_success(request, membership_number):
+    """ A view to Show payment success page """
 
     save_info = request.session.get('save_info')
     order = get_object_or_404(
