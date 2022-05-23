@@ -13,6 +13,7 @@ def userlogin(request):
 
     return render(request, 'base/userlogin.html')
 
+
 def contact(request):
     """ A view to return the contact page """
 

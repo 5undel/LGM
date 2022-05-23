@@ -2,12 +2,14 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Coach
 from django.contrib import messages
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 
 from .forms import BookingForm
 from .models import Coach
 
 
 # Create your views here.
+@login_required(login_url='login.html')
 def all_coachs(request):
     """ A view to return the pt page """
 
@@ -19,7 +21,7 @@ def all_coachs(request):
 
     return render(request, 'pt/pt.html', context)
 
-
+@login_required(login_url='login.html')
 def coach_detail(request, coach_id):
     """ A view to return the pt detail page """
 
