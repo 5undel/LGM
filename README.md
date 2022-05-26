@@ -120,6 +120,11 @@ Steps taken to deploy are as follows:
 ## Facebook
   ![image](wireframe/facebook.png)
 
+
+## Business model
+
+  ![image](wireframe/ecbm.png)
+
 ## Wireframe
 - Home page
  ![image](wireframe/home.png)
