@@ -20,6 +20,7 @@ def checkout(request, pk):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
     product = get_object_or_404(Product, pk=pk)
+    profile = UserProfile.objects.get(user=request.user)
 
     if request.method == 'POST':
         form_data = {
@@ -46,7 +47,16 @@ def checkout(request, pk):
             amount=int(product.price * 100),
             currency=settings.STRIPE_CURRENCY,
         )
-    order_form = MembershipForm()
+    order_form = MembershipForm(
+        initial={
+            'full_name': profile.user,
+            'email': profile.user.email,
+            'phone_number': profile.default_phone_number,
+            'town_or_city': profile.default_town_or_city,
+            'street_address1': profile.default_street_address1,
+            'street_address2': profile.default_street_address2,
+        }
+    )
     template = 'checkout/checkout.html'
     context = {
         'order_form': order_form,

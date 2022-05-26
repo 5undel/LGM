@@ -8,12 +8,13 @@
 
 <div class="container bg-dark">
   <div class="row">
-      <div class="col">
-        <hr>
-        <h2 class="logo-font mb-4 text-white">{% trans "Sign In" %}</h2>
-        <hr>        
-      </div>
-  </div>
+    <div class="col">
+      <hr>
+      <h1 class="text-white">{% trans "Sign in" %}</h1>
+      <p class="text-white">{% blocktrans %}New here ?  <a href="{{ signup_url }}">Sign up</a>.{% endblocktrans %}</p>
+      <hr>        
+    </div>
+</div>
   <div class="row">
       <div class="col-12 col-lg-6">
           <form class="login mt-3 bg-dark text-white" method="POST" action="{% url 'account_login' %}">
