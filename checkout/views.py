@@ -89,7 +89,6 @@ def checkout_success(request, membership_number):
 
     """ send confirmations email to new members """
     template = render_to_string('checkout/confirmation_emails/confirmation_email_body.html')
-
     email = EmailMessage(
         'Thank you for becoming a member at LGM ',
         template,
