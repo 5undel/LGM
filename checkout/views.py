@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpR
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
-from django.core.mail import send_mail
+from django.core.mail import EmailMessage
+from django.template.loader import render_to_string
 
 from .forms import MembershipForm
 from membership.models import Product
@@ -85,6 +86,19 @@ def checkout(request, pk):
 
 def checkout_success(request, membership_number):
     """ A view to Show payment success page """
+
+    """ send confirmations email to new members """
+    template = render_to_string('checkout/confirmation_emails/confirmation_email_body.html')
+
+    email = EmailMessage(
+        'Thank you for becoming a member at LGM ',
+        template,
+        settings.EMAIL_HOST_USER,
+        ['max.sundel@choice.se'],
+        )
+
+    email.fail_silently=False
+    email.send()
 
     save_info = request.session.get('save_info')
     order = get_object_or_404(
