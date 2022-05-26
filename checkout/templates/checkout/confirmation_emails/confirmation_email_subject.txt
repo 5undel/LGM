@@ -1,0 +1,1 @@
+Lets Get Moving Confirmation for Membership {{ CreateMembership.membership_number }}

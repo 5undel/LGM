@@ -117,6 +117,8 @@ Steps taken to deploy are as follows:
 - Background image - [Unsplash](https://unsplash.com/s/photos/gym)
 - Countdown time - [stackoverflow](https://stackoverflow.com/questions/38276672/todays-date-30-days-in-javascript)
 
+## Facebook
+  ![image](wireframe/facebook.png)
 
 ## Wireframe
 - Home page
