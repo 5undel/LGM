@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /accounts/
+Sitemap: https://lets-get-moving.herokuapp.com/sitemap.xml
