@@ -120,6 +120,8 @@ Steps taken to deploy are as follows:
 ## Facebook
   ![image](wireframe/facebook.png)
 
+## Newsletter
+  ![image](wireframe/newletter.png)
 
 ## Business model
 
