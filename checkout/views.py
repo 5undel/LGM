@@ -87,18 +87,6 @@ def checkout(request, pk):
 def checkout_success(request, membership_number):
     """ A view to Show payment success page """
 
-    """ send confirmations email to new members """
-    template = render_to_string('checkout/confirmation_emails/confirmation_email_body.html')
-    email = EmailMessage(
-        'Thank you for becoming a member at LGM ',
-        template,
-        settings.EMAIL_HOST_USER,
-        ['max.sundel@choice.se'],
-        )
-
-    email.fail_silently=False
-    email.send()
-
     save_info = request.session.get('save_info')
     order = get_object_or_404(
         CreateMembership, membership_number=membership_number)
@@ -121,6 +109,19 @@ def checkout_success(request, membership_number):
         user_profile_form = UserProfileForm(profile_data, instance=profile)
         if user_profile_form.is_valid():
             user_profile_form.save()
+
+
+    """ send confirmations email to new members """
+    template = render_to_string('checkout/confirmation_emails/confirmation_email_body.html')
+    email = EmailMessage(
+        'Thank you for becoming a member at LGM ',
+        template,
+        settings.EMAIL_HOST_USER,
+        [profile.default_email],
+        )
+
+    email.fail_silently=False
+    email.send()
 
     messages.success(request, f'Membership successfully processed! \
         Your membership number is {membership_number}. A confirmation \
