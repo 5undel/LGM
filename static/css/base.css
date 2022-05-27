@@ -5,6 +5,7 @@ html {
 
 body {
     background: url('/media/bg-img.jpg') no-repeat center center fixed;
+    background-color: #212529;
     background-size: cover;
     height: calc(100vh - 164px);
     color: #555;
